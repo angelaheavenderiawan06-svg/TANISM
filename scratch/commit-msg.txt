@@ -1,0 +1,11 @@
+Impor produk bulk CSV (Master Produk) + hubungkan Supabase real-time sync
+
+- Master Produk: tambah tombol "Import dari CSV/TSV"; auto-detect kolom
+  Nama Produk/Harga/Stok/Kategori; format angka Rp & US; ID otomatis lanjut
+  dari data lama (tes: 250 baris -> 250 produk, 0 terabaikan).
+- Supabase: vendor supabase-js v2 (js/lib/supabase.js), js/supabase-config.js
+  + js/supabase-sync.js (mirror firebase-sync.js), SQL
+  migrations/supabase/001_tanism_store.sql, ganti tag <script> Firebase
+  dengan Supabase di index.html/admin.html.
+- TaniStore otomatis terhubung: TaniStore.writeKey -> TaniSync.push
+  (js/store.js sudah memanggilnya), start via DOMContentLoaded.
